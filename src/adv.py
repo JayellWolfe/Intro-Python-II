@@ -28,8 +28,8 @@ earlier adventurers. The only exit is to the south.""", []),
     and spices, in addition to cleaning rags, brooms, broken chairs, and tools for repairing 
 furniture""", []),
 
-    'lounge': Room("#       lounge      #", """Although smooking is allowed anywhere in the Tavern, this
-lounge is a favorite hangout for memebers of a local smokers' club called the Puffers Fishers. Most of
+    'lounge': Room("#       lounge      #", """Although smoking is allowed anywhere in the Tavern, this
+lounge is a favorite hangout for members of a local smokers' club called the Puffers Fishers. Most of
 the club members are local fishers and crab catchers.""", []),
 
     'kitchen': Room("#        Kitchen        #", """There are three cooks employed to prepare 
@@ -141,7 +141,7 @@ def print_room_info():
 
 
 action = cmd    
-parsed_cmd = cmd.split()
+split_cmd = cmd.split()
 
 if action == "g" or action =="grab":
     for i in Jessica.room.items:
@@ -151,16 +151,16 @@ if action == "g" or action =="grab":
             Jessica.room.items.remove(i)
 
 
-if len(parsed_cmd) > 1:
-    action = parsed_cmd[0]
+if len(split_cmd) > 1:
+    action = split_cmd[0]
 
 
-    for i in range(1, len(parsed_cmd)):
-        item += parsed_cmd[i] + " "
+    for i in range(1, len(split_cmd)):
+        item += split_cmd[i] + " "
     item = item.strip()
 
     if action == "g" or action == "grab":
-        if parsed_cmd[1].name in Jessica.room.items:
+        if split_cmd[1].name in Jessica.room.items:
             print("...grabbing item")
 
 
@@ -176,10 +176,10 @@ while not dir == "q":
 
 
     dir = input('please enter a direction...n, s, e, w, or q to quit the game')
-    parsed_cmd = dir.split()
-    if len(parsed_cmd) == 2:
-        if parsed_cmd[0].lower() == "get":
-            print(f"{parsed_cmd[1]} picked up")
+    split_cmd = dir.split()
+    if len(split_cmd) == 2:
+        if split_cmd[0].lower() == "get":
+            print(f"{split_cmd[1]} picked up")
             # put item name
             Jessica.items.append(Jessica.room.items[0])
             print(Jessica.items)
